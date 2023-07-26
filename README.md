@@ -69,7 +69,7 @@
 All contracts in `src` are in scope.
 
 *Note on `script` folder*:
-The contracts in `script` are the scripts you can assume are going to be used to deploy and interact with the contracts. If they have an issue that will affect the overall security of the system, they are in scope. However, if they have a security issue that only affects the script and not the overall deployment of the stablecoin protocol, it is out of scope.
+The contracts in `script` are the scripts you can assume are going to be used to deploy and interact with the contracts. If they have an issue that will affect the overall security of the system, they are in scope. However, if they have a security issue that only affects the script and not the overall deployment of the escrow protocol, it is out of scope.
 
 ## Known Issues
 
