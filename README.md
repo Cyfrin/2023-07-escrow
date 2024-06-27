@@ -1,24 +1,25 @@
-# CodeHawks Escrow Contract - Competition Details
+# CodeHawks Escrow Contract
 
-<br/>
-<p align="center">
-<a href="https://codehawks.com" target="_blank">
-<img src="https://res.cloudinary.com/droqoz7lg/image/upload/v1689080263/snhkgvtsidryjdtx0pce.png" width="400" alt="CodeHawks escrow contract">
-</a>
-</p>
-<br/>
+[//]: # (contest-details-open)
 
 ## Contest Details 
 
 - Total Prize Pool: $40,000
   - HM Awards: $37,000
   - LQAG Awards: $3,000
+ 
 - Starts July 24, 2023
 - Ends August 5th, 2023
+
+
 - nSLOC: ~182
 - Complexity Score: ~106
 
 ### Project Overview
+
+### About
+
+This project is meant to enable smart contract auditors (sellers) and smart contract protocols looking for audits (buyers) to connect using a credibly neutral option, with optional arbitration.
 
 **Actors**
 
@@ -58,12 +59,13 @@
 1. The buyer creates an `Escrow` contract through `EscrowFactory::newEscrow`, depositing the funds.
 2. For any reason, the buyer or the seller can initiate a dispute through `Escrow::initiateDispute`.
 3. The arbiter confers with both parties offchain. Arbiter then calls `Escrow::resolveDispute`, reimbursing either side accordingly, emptying the `Escrow`.
+
+## Acknowledgements
+- Inspiration for the codebase from [Ross Campbell](https://www.linkedin.com/in/ross-campbell-058153aa/)
 ​
+[//]: # (contest-details-close)
 
-## Submissions 
-
-- Submit to [CodeHawks](https://www.codehawks.com/contests/cljyfxlc40003jq082s0wemya)
-
+[//]: # (scope-open)
 ## In Scope
 
 All contracts in `src` are in scope.
@@ -71,6 +73,9 @@ All contracts in `src` are in scope.
 *Note on `script` folder*:
 The contracts in `script` are the scripts you can assume are going to be used to deploy and interact with the contracts. If they have an issue that will affect the overall security of the system, they are in scope. However, if they have a security issue that only affects the script and not the overall deployment of the escrow protocol, it is out of scope.
 
+[//]: # (scope-close)
+
+[//]: # (known-issues-open)
 ## Known Issues
 
 * **Addresses other than the zero address (for example 0xdead) could prevent disputes from being resolved** - Before the `buyer` deploys a new `Escrow`, the `buyer` and `seller` should agree to the terms for the `Escrow`. If the `buyer` accidentally or maliciously deploys an `Escrow` with incorrect `arbiter` details, then the `seller` could refuse to provide their services. Given that the `buyer` is the actor deploying the new `Escrow` and locking the funds, it's in their best interest to deploy this correctly.
@@ -82,31 +87,9 @@ The contracts in `script` are the scripts you can assume are going to be used to
 * **User error such as `buyer` calling `confirmReceipt` too soon**
 * **Non-`tokenAddress` funds locked**
 
-# About
+[//]: # (known-issues-close)
 
-This project is meant to enable smart contract auditors (sellers) and smart contract protocols looking for audits (buyers) to connect using a credibly neutral option, with optional arbitration.
-
-- [CodeHawks Escrow Contract - Competition Details](#codehawks-escrow-contract---competition-details)
-  - [Contest Details](#contest-details)
-    - [Project Overview](#project-overview)
-    - [Workflows](#workflows)
-  - [Submissions](#submissions)
-  - [In Scope](#in-scope)
-  - [Known Issues](#known-issues)
-- [About](#about)
-- [Getting Started](#getting-started)
-  - [Requirements](#requirements)
-  - [Quickstart](#quickstart)
-- [Usage](#usage)
-  - [Testing](#testing)
-    - [Test Coverage](#test-coverage)
-  - [Start a local node](#start-a-local-node)
-  - [Deploy](#deploy)
-  - [Deploy - Other Network](#deploy---other-network)
-- [Deployment to a testnet or mainnet](#deployment-to-a-testnet-or-mainnet)
-  - [Estimate gas](#estimate-gas)
-- [Formatting](#formatting)
-- [Acknowledgements](#acknowledgements)
+[//]: # (getting-started-open)
 
 # Getting Started
 
@@ -206,7 +189,4 @@ To run code formatting:
 ```
 forge fmt
 ```
-
-
-# Acknowledgements
-- Inspiration for the codebase from [Ross Campbell](https://www.linkedin.com/in/ross-campbell-058153aa/)
+[//]: # (getting-started-close)
