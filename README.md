@@ -1,7 +1,5 @@
 # CodeHawks Escrow Contract
 
-[//]: # (contest-details-open)
-
 ## Contest Details 
 
 - Total Prize Pool: $40,000
@@ -14,6 +12,8 @@
 
 - nSLOC: ~182
 - Complexity Score: ~106
+
+[//]: # (contest-details-open)
 
 ### Project Overview
 
